@@ -5,14 +5,15 @@ import {uniqueId} from 'lodash';
  * @param {Object} state - the previous state 
  * @param {Number} index - the index to remove
  */
-export const deleteTodo = (state, index) => (
-  state.todos.length - 1 >= index 
-  ? {
-      ...state,
-      todos: [...state.todos.splice(index, 1)]
-    }
-  : {...state}
-);
+export const deleteTodo = (state, index) => {
+  if(state.todos.length -1 < index) return {...state};
+  const newTodos = [...state.todos];
+  newTodos.splice(index, 1);
+  return {
+    ...state,
+    todos: newTodos
+  }
+};
 
 /**
  * 

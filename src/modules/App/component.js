@@ -10,7 +10,10 @@ export const Component = ({todos, deleteTodo, addTodo, finalMessage}) => (
     <p>
       <Counter counter={Array.isArray(todos) ? todos.length : 0} />
     </p>
-    <TodoList todos={todos} finalMessage={finalMessage} />
+    <TodoList
+      todos={todos}
+      finalMessage={finalMessage}
+      deleteTodo={deleteTodo} />
     <Input 
       onClick={addTodo}
       placeholder="..."
